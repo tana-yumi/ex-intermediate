@@ -24,6 +24,7 @@ public class TeamController {
 		return "team/teamlist";
 	}
 	
+	@RequestMapping("/showDetile")
 	public String showDetail(Integer id, Model model) {
 		Team team = teamService.showDetail(id);
 		model.addAttribute("team", team);

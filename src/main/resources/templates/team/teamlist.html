@@ -7,13 +7,14 @@
 <body>
 
 <h1>野球チーム一覧</h1>
-<a>読売ジャイアンツ</a><br>
-<a>阪神タイガーズ</a><br>
-<a>中日ドラゴンズ</a><br>
-<a>横浜ベイスターズ</a><br>
-<a>横浜DeNAベイスターズ</a><br>
-<a>広島東洋カープ</a><br>
-<a>東京ヤクルトスワローズ</a><br>
+<form th:action="@{/ex01/showList}" method="post">
+
+<span th:each = "team:${teamList}">
+<a th:text = "${team.teamName}" th:href="@{'/ex01/showDetile?id='+${team.id}}"></a><br>
+</span>
+
+</form>
+
 
 </body>
 </html>

@@ -1,21 +1,42 @@
 package com.example.domain;
 
-import java.util.Date;
-
+/**
+ * 野球チームドメイン.
+ * @author tanaamiyumi
+ *
+ */
 public class Team {
 
+	/**
+	 *ID 
+	 */
 	private Integer id;
+	/**
+	 *リーグチーム 
+	 */
 	private String leagueName;
+	/**
+	 * 野球チーム名
+	 */
 	private String teamName;
+	/**
+	 * 本拠地
+	 */
 	private String headquarters;
-	private Date inauguration;
+	/**
+	 * 発足日
+	 */
+	private String inauguration;
+	/**
+	 * 歴史
+	 */
 	private String history;
 	
 	public Team() {
 		
 	}
 	
-	public Team(Integer id, String leagueName, String teamName, String headquarters, Date inauguration,
+	public Team(Integer id, String leagueName, String teamName, String headquarters, String inauguration,
 			String history) {
 		super();
 		this.id = id;
@@ -58,11 +79,11 @@ public class Team {
 		this.headquarters = headquarters;
 	}
 
-	public Date getInauguration() {
+	public String getInauguration() {
 		return inauguration;
 	}
 
-	public void setInauguration(Date inauguration) {
+	public void setInauguration(String inauguration) {
 		this.inauguration = inauguration;
 	}
 
