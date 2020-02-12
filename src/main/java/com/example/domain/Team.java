@@ -2,17 +2,18 @@ package com.example.domain;
 
 /**
  * 野球チームドメイン.
+ * 
  * @author tanaamiyumi
  *
  */
 public class Team {
 
 	/**
-	 *ID 
+	 * ID
 	 */
 	private Integer id;
 	/**
-	 *リーグチーム 
+	 * リーグチーム
 	 */
 	private String leagueName;
 	/**
@@ -31,11 +32,11 @@ public class Team {
 	 * 歴史
 	 */
 	private String history;
-	
+
 	public Team() {
-		
+
 	}
-	
+
 	public Team(Integer id, String leagueName, String teamName, String headquarters, String inauguration,
 			String history) {
 		super();
@@ -100,8 +101,5 @@ public class Team {
 		return "TeamDomain [id=" + id + ", leagueName=" + leagueName + ", teamName=" + teamName + ", headquarters="
 				+ headquarters + ", inauguration=" + inauguration + ", history=" + history + "]";
 	}
-	
-	
-	
-	
+
 }

@@ -1,12 +1,21 @@
 package com.example.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.example.domain.Hotel;
 
+/**
+ * Hotelsテーブルを操作するリポジトリ.
+ * @author tanaami
+ *
+ */
 @Repository
 public class HotelRepository {
 
@@ -25,4 +34,27 @@ public class HotelRepository {
 	    
 	    return hotel;
 	};
+	
+	/**
+	 * ホテル全件検索を行うメソッド.
+	 * @return　全件ホテル情報
+	 */
+	public List<Hotel> findAll() {
+		String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking FROM hotels;";
+		List<Hotel> hotelList = template.query(sql, Hotel_ROW_MAPPER);
+		return hotelList;
+	}
+	
+	/**
+	 * ホテル価格帯によって検索されるメソッド.
+	 * @param price 検索するホテル価格
+	 * @return　価格検索された該当するホテル情報
+	 */
+	public List<Hotel> findByPrice(Integer price) {
+		String sql ="SELECT id, area_name, hotel_name, address, nearest_station, price, parking FROM hotels WHERE price <= :price;";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);
+		List<Hotel> hotelPriceList = template.query(sql, param, Hotel_ROW_MAPPER);
+		
+		return hotelPriceList;
+	}
 }

@@ -7,13 +7,11 @@
 <body>
 
 <h1>野球チーム一覧</h1>
-<form th:action="@{/ex01/showList}" method="post">
 
 <span th:each = "team:${teamList}">
 <a th:text = "${team.teamName}" th:href="@{'/ex01/showDetile?id='+${team.id}}"></a><br>
 </span>
 
-</form>
 
 
 </body>

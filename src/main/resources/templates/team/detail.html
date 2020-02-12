@@ -5,7 +5,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form th:action="@{/ex01/showList}" method="post">
 		<h2>球団名</h2>
 		<span th:text="${team.teamName}">読売ジャイアンツ</span>
 		<h2>本拠地</h2>
@@ -15,6 +14,7 @@
 		<h2>歴史</h2>
 		<pre th:text="${team.history}">大日本東京野球倶楽部(1934年)</pre><br>
 
+	<form th:action="@{/ex01/showList}" method="post">
 	<button>戻る</button>
 	</form>
 </body>
